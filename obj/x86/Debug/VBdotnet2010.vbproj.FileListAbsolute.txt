@@ -1,0 +1,10 @@
+E:\SourceCodes\dev_net\VBdotnet2010\VBdotnet2010\bin\Debug\VBdotnet2010.exe
+E:\SourceCodes\dev_net\VBdotnet2010\VBdotnet2010\bin\Debug\VBdotnet2010.pdb
+E:\SourceCodes\dev_net\VBdotnet2010\VBdotnet2010\bin\Debug\VBdotnet2010.xml
+E:\SourceCodes\dev_net\VBdotnet2010\VBdotnet2010\obj\x86\Debug\VBdotnet2010.Form1.resources
+E:\SourceCodes\dev_net\VBdotnet2010\VBdotnet2010\obj\x86\Debug\VBdotnet2010.Resources.resources
+E:\SourceCodes\dev_net\VBdotnet2010\VBdotnet2010\obj\x86\Debug\VBdotnet2010.vbproj.GenerateResource.Cache
+E:\SourceCodes\dev_net\VBdotnet2010\VBdotnet2010\obj\x86\Debug\VBdotnet2010.exe
+E:\SourceCodes\dev_net\VBdotnet2010\VBdotnet2010\obj\x86\Debug\VBdotnet2010.xml
+E:\SourceCodes\dev_net\VBdotnet2010\VBdotnet2010\obj\x86\Debug\VBdotnet2010.pdb
+E:\SourceCodes\dev_net\VBdotnet2010\VBdotnet2010\obj\x86\Debug\VBdotnet2010.Dialog1.resources
