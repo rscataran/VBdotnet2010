@@ -95,6 +95,60 @@ Public Class Form1
         MessageBox.Show("You Pressed Me, I'm " & sender.text & ".")
     End Sub
 
+    Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
+        'PictureBox to MemoryStream to Database
+        Dim cn As New SqlClient.SqlConnection("Data Source=.\SQLEXPRESS;Initial Catalog=Database1;Integrated Security=True;")
+        Dim cmd As New SqlClient.SqlCommand("UPDATE [dbo].[Table1] SET [Field5] = @Field5 WHERE [Field1] = 1", cn)
+        Dim ms As New MemoryStream
+        PictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)
+        cmd.Parameters.AddWithValue("@Field5", ms.GetBuffer)
+        Try
+            cn.Open()
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            cn.Close()
+        End Try
+    End Sub
+
+    Private Sub Button7_Click(sender As System.Object, e As System.EventArgs) Handles Button7.Click
+        'Database to MemoryStream to PictureBox
+        Dim cn As New SqlClient.SqlConnection("Data Source=.\SQLEXPRESS;Initial Catalog=Database1;Integrated Security=True;")
+        Dim cmd As New SqlClient.SqlCommand("SELECT [Field5] FROM [dbo].[Table1] WHERE [Field1] = 1", cn)
+        Try
+            cn.Open()
+            Dim dr = cmd.ExecuteReader
+            If dr.HasRows Then
+                dr.Read()
+                Dim img As Byte() = DirectCast(dr("Field5"), Byte())
+                Dim ms As New MemoryStream(img, 0, img.Length)
+                With PictureBox1
+                    .Image = Image.FromStream(ms)
+                    .SizeMode = PictureBoxSizeMode.StretchImage
+                End With
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        Finally
+            cn.Close()
+        End Try
+    End Sub
+
+    Private Sub Button8_Click(sender As System.Object, e As System.EventArgs) Handles Button8.Click
+        'PictureBox to File
+        Dim sample_file As String = "sample.jpg"
+        PictureBox1.Image.Save(sample_file, System.Drawing.Imaging.ImageFormat.Jpeg)
+        MessageBox.Show("Image File Saved")
+    End Sub
+
+    Private Sub Button9_Click(sender As System.Object, e As System.EventArgs) Handles Button9.Click
+        'Image From File to PictureBox
+        With PictureBox1
+            .Image = Image.FromFile("koala.jpg")
+            .SizeMode = PictureBoxSizeMode.StretchImage
+        End With
+    End Sub
 End Class
 
 Public Class Person
